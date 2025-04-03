@@ -21,7 +21,7 @@ const MagazineCard: React.FC<MagazineCardProps> = ({
   return (
     <motion.div
       whileHover={{ y: -5 }}
-      className="group bg-transparent transition-all duration-300"
+      className="group bg-trasparent transition-all duration-300"
     >
       <Link href={`/magazineDetail/${id}`} className="block">
         {/* Cover Image Container */}
@@ -39,7 +39,7 @@ const MagazineCard: React.FC<MagazineCardProps> = ({
 
         {/* Title Container */}
         <div className="pt-3 pb-2">
-          <h3 className="text-lg font-bold text-gray-900 hover:text-gray-700 transition-colors">
+          <h3 className="text-md font-bold text-gray-900 hover:text-gray-700 transition-colors">
             {title}
           </h3>
         </div>

@@ -3,6 +3,7 @@ import { FaInstagram} from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
 import { BiLogoTelegram } from "react-icons/bi";
+import { CiLinkedin } from "react-icons/ci";
 const Footer = () => {
   return (
     <footer className="bg-white border-t border-gray-100 px-6">
@@ -20,8 +21,7 @@ const Footer = () => {
               />
             </Link>
             <p className="mt-4 text-gray-600">
-              Discover the future of architecture through our curated collection
-              of premium magazines.
+              Discover the first student magazine in AASTU
             </p>
           </div>
 
@@ -72,15 +72,10 @@ const Footer = () => {
               Categories
             </h3>
             <ul className="space-y-2 text-black">
-              <li>
-                Poetry
-              </li>
-              <li>
-                Letters
-              </li>
-              <li>
-                Pictures
-              </li>
+              <li>Art & Life-Style</li>
+              <li>Literature</li>
+              <li>Photography</li>
+              <li>Others</li>
             </ul>
           </div>
 
@@ -98,12 +93,20 @@ const Footer = () => {
               </Link>
 
               <Link
-                href="https://instagram.com"
+                href="https://www.instagram.com/tadiyas_aastu/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-black transition-colors"
               >
                 <FaInstagram size="1.5rem" />
+              </Link>
+              <Link
+                href="https://www.instagram.com/tadiyas_aastu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-black transition-colors"
+              >
+                <CiLinkedin size="1.5rem"/>
               </Link>
             </div>
           </div>

@@ -39,7 +39,7 @@ const team = [
   },
   {
     name: "Makda Yoseph",
-    role: "Project Manager & Editor",
+    role: "Project Manager & Bot Developer",
     image: "/nostaliga.jpg",
   },
   {
@@ -62,9 +62,9 @@ const About = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="pt-24 ">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -72,18 +72,13 @@ const About = () => {
             transition={{ duration: 0.5 }}
             className="text-center"
           >
-            <h1 className="text-5xl font-bold mb-8 text-gray-900">About Us</h1>
-            <p className="text-xl leading-relaxed text-gray-600">
-              We&apos;re passionate about bringing the world&apos;s most
-              innovative architectural designs to our readers. Our mission is to
-              inspire, educate, and connect the global architectural community.
-            </p>
+            <h1 className="text-5xl font-bold  text-gray-900">About Us</h1>
           </motion.div>
         </div>
       </section>
 
       {/* Vision Section */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -95,18 +90,12 @@ const About = () => {
               <h2 className="text-4xl font-bold text-gray-900">Our Vision</h2>
               <div className="space-y-6">
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  At Tadiyas AASTU, we believe that architecture has the power
-                  to transform societies and shape the future. Our vision is to
-                  be the leading platform for architectural innovation, bringing
-                  together designers, thinkers, and enthusiasts from around the
-                  world.
+                  Our vision is to create a space at AASTU where students can
+                  explore their passions and express their creativity. We want
+                  to bring people together, encourage new ideas, and help
+                  students grow through collaboration and innovation.
                 </p>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  Through our carefully curated magazines, we showcase
-                  groundbreaking projects, emerging trends, and the stories
-                  behind the world&apos;s most remarkable architectural
-                  achievements.
-                </p>
+              
               </div>
               <Link
                 href="/contact"
@@ -127,6 +116,8 @@ const About = () => {
                 src="/home.jpg"
                 alt="Our Vision"
                 className="w-full h-full object-cover"
+                width={800}
+                height={600}
               />
             </motion.div>
           </div>
@@ -146,7 +137,8 @@ const About = () => {
           </div>
 
           {/* Auto-scrolling Team Avatars */}
-          <div className="relative w-full overflow-hidden">
+          {/* Auto-scrolling Team Avatars */}
+          <div className="relative w-full overflow-x-auto">
             <motion.div
               className="flex space-x-12"
               initial={{ x: 0 }}
@@ -156,13 +148,17 @@ const About = () => {
                 duration: 20,
                 repeat: Infinity,
               }}
-              style={{ display: "flex", width: "200%" }}
+              style={{
+                display: "flex",
+                width: scrollingTeam.length * 150 + "px",
+                minWidth: "100%",
+              }}
             >
               {scrollingTeam.map((member, index) => (
                 <div
                   key={index}
-                  className="flex flex-col items-center mx-8" 
-                  style={{ minWidth: "150px" }} 
+                  className="flex flex-col items-center mx-8"
+                  style={{ minWidth: "150px" }}
                 >
                   <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-lg mb-3">
                     <Image

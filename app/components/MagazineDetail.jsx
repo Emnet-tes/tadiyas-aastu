@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useParams } from "next/navigation";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import {
@@ -12,7 +11,7 @@ import {
 import { GrFormNext, GrPrevious } from "react-icons/gr";
 import HTMLFlipBook from "react-pageflip";
 import { Document, Page, pdfjs } from "react-pdf";
-
+import data from "@/public/data.json"
 // Set up PDF.js worker
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   "pdfjs-dist/build/pdf.worker.min.mjs",
@@ -94,7 +93,7 @@ const MagazineDetail = () => {
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isFullScreen]);
-
+  
   return (
     <div
       ref={containerRef}
@@ -133,7 +132,9 @@ const MagazineDetail = () => {
 
         <div className="flex flex-col items-center justify-center">
           <Document
-            file="/First Release Magazine April 2025.pdf"
+           
+            file={`/${data.magazines[id-1].file}.pdf`}
+            
             onLoadSuccess={onDocumentLoadSuccess}
             loading="Loading PDF..."
           >
@@ -144,7 +145,7 @@ const MagazineDetail = () => {
                   height={dimensions.height * zoom}
                   onFlip={onFlip}
                   ref={flipBook}
-                  // showCover={true}
+                  showCover={true}
                   maxShadowOpacity={0.5}
                   flippingTime={1000}
                   usePortrait={!isDesktop}

@@ -3,11 +3,21 @@
   "magazines": [
     {
       "id": 1,
-      "title": "The First Release",
-      "cover": "/magazine1.jpg",
+      "title": "2025:Tadiyas AASTU Vol.1",
+      "cover": "/CoverPage.png",
       "description": "Finding solutions in crisis",
       "category": "All",
-      "date": "April, 2025"
+      "date": "April, 2025",
+      "file":"First Release Magazine April 2025"
+    },
+     {
+      "id": 2,
+      "title": "Coming Soon",
+      "cover": "/Commingsoon.png",
+      "description": "Finding solutions in crisis",
+      "category": "All",
+      "date": "May, 2025",
+      "file":"Comingsoon"
     }
   ],
   "team" : [

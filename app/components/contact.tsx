@@ -105,7 +105,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-800 transition-colors inline-flex items-center justify-center group"
+                className="w-full bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors inline-flex items-center justify-center group"
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
                 {!isSubmitting && <FaArrowRight className="ml-2" />}
@@ -134,15 +134,6 @@ const Contact = () => {
                 </div>
                 <div className="flex items-start">
                   <button className="text-xl mt-1 mr-4">
-                    <FaPhone />
-                  </button>
-                  <div>
-                    <h3 className="font-medium mb-1">Phone</h3>
-                    <p className="text-gray-600">+1 (555) 123-4567</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <button className="text-xl mt-1 mr-4">
                     <FaMapMarkerAlt />
                   </button>
                   <div>
@@ -159,10 +150,19 @@ const Contact = () => {
               </div>
 
               {/* Be Member Button */}
-              <div className="mt-6">
-                <Link href="http://bit.ly/3QZwBpD" passHref>
-                  <button className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+              <div className="mt-6 flex flex-row justify-around">
+                <Link href="http://bit.ly/3QZwBpD" passHref target="_blank">
+                  <button className="w-full bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
                     Be Member
+                  </button>
+                </Link>
+                <Link
+                  href="https://t.me/tadiyasAASTUmagazine_bot"
+                  passHref
+                  target="_blank"
+                >
+                  <button className="w-full bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
+                    Submit Work
                   </button>
                 </Link>
               </div>

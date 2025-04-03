@@ -136,57 +136,84 @@ else if (containerRef.current.webkitRequestFullscreen) {
           <GrPrevious size={12} />
         </button>
 
-        <div className="flex flex-col items-center justify-center">
-          <Document
-           
-            file={`/${data.magazines[id-1].file}.pdf`}
-            
-            onLoadSuccess={onDocumentLoadSuccess}
-            loading="Loading PDF..."
+        {/* Scrollable container for zooming */}
+        <div className="relative w-full flex justify-center items-center">
+          <button
+            onClick={handlePrevPage}
+            disabled={currentPage === 0}
+            className="absolute left-3 lg:left-10 z-10 p-2 bg-white text-gray-700 rounded-full shadow hover:bg-blue-500 hover:text-white disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {numPages ? (
-              <div className=" p-4 rounded-lg ">
-                <HTMLFlipBook
-                  width={dimensions.width * zoom}
-                  height={dimensions.height * zoom}
-                  onFlip={onFlip}
-                  ref={flipBook}
-                  showCover={true}
-                  maxShadowOpacity={0.5}
-                  flippingTime={1000}
-                  usePortrait={!isDesktop}
-                  startPage={0}
-                  size="stretch"
-                  minWidth={dimensions.width}
-                  maxWidth={dimensions.width * 2}
-                  drawShadow={true}
-                >
-                  {[...Array(numPages)].map((_, i) => (
-                    <Pages key={i} number={i + 1}>
-                      <Page
-                        pageNumber={i + 1}
-                        width={dimensions.width * zoom}
-                        renderAnnotationLayer={false}
-                        renderTextLayer={false}
-                        loading={
-                          <div className="flex justify-center items-center h-full">
-                            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
-                          </div>
-                        }
-                      />
-                    </Pages>
-                  ))}
-                </HTMLFlipBook>
-              </div>
-            ) : (
-              <div className="flex justify-center items-center h-[400px]">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
-              </div>
-            )}
-          </Document>
-          <span className="text-gray-700 mb-4">
-            Page {currentPage + 1} of {numPages || "--"}
-          </span>
+            <GrPrevious size={12} />
+          </button>
+
+          {/* Wrapping the flipbook inside a scrollable container */}
+          <div
+            className="relative overflow-auto flex justify-center items-center w-full max-w-6xl"
+            style={{ height: "80vh" }} // Ensures it stays within the viewport
+          >
+            <div
+              className="flex justify-center items-center"
+              style={{
+                transform: `scale(${zoom})`,
+                transformOrigin: "center", // Keeps zooming centered
+                transition: "transform 0.3s ease-in-out", // Smooth zoom effect
+                whiteSpace: "nowrap", // Prevents breaking apart
+              }}
+            >
+              <Document
+                file={`/${data.magazines[id - 1].file}.pdf`}
+                onLoadSuccess={onDocumentLoadSuccess}
+              >
+                {numPages ? (
+                  <div className="p-4 rounded-lg">
+                    <HTMLFlipBook
+                      width={dimensions.width}
+                      height={dimensions.height}
+                      onFlip={onFlip}
+                      ref={flipBook}
+                      showCover={true}
+                      maxShadowOpacity={0.5}
+                      flippingTime={1000}
+                      usePortrait={!isDesktop}
+                      startPage={0}
+                      size="stretch"
+                      minWidth={dimensions.width}
+                      maxWidth={dimensions.width * 2}
+                      drawShadow={true}
+                    >
+                      {[...Array(numPages)].map((_, i) => (
+                        <Pages key={i} number={i + 1}>
+                          <Page
+                            pageNumber={i + 1}
+                            width={dimensions.width}
+                            renderAnnotationLayer={false}
+                            renderTextLayer={false}
+                            loading={
+                              <div className="flex justify-center items-center h-full">
+                                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+                              </div>
+                            }
+                          />
+                        </Pages>
+                      ))}
+                    </HTMLFlipBook>
+                  </div>
+                ) : (
+                  <div className="flex justify-center items-center h-[400px]">
+                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
+                  </div>
+                )}
+              </Document>
+            </div>
+          </div>
+
+          <button
+            onClick={handleNextPage}
+            disabled={currentPage === numPages - 1}
+            className="absolute right-3 lg:right-10 z-10 p-2 bg-white text-gray-700 rounded-full shadow hover:bg-blue-500 hover:text-white disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <GrFormNext size={20} />
+          </button>
         </div>
 
         <button

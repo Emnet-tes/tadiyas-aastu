@@ -83,6 +83,9 @@ else if (containerRef.current.webkitRequestFullscreen) {
       } else if (containerRef.current.msRequestFullscreen) {
         containerRef.current.msRequestFullscreen();
       }
+      else{
+        containerRef.current.classList.toggle("fullscreen-mode");
+      }
       setIsFullScreen(true);
     } else {
       document.exitFullscreen();

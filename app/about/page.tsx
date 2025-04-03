@@ -145,7 +145,7 @@ const About = () => {
               animate={{ x: "-50%" }}
               transition={{
                 ease: "linear",
-                duration: 20,
+                duration: 30,
                 repeat: Infinity,
               }}
               style={{

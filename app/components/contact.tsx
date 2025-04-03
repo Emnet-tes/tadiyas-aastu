@@ -7,7 +7,6 @@ import {
   FaArrowRight,
   FaEnvelope,
   FaMapMarkerAlt,
-  FaPhone,
 } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import {sendEmail} from "@/utils/send-email";

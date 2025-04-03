@@ -11,12 +11,10 @@ import {
 import { GrFormNext, GrPrevious } from "react-icons/gr";
 import HTMLFlipBook from "react-pageflip";
 import { Document, Page, pdfjs } from "react-pdf";
-import data from "@/public/data.json"
+import data from "@/public/data.json";
+
 // Set up PDF.js worker
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  "pdfjs-dist/build/pdf.worker.min.mjs",
-  import.meta.url
-).toString();
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 const Pages = React.forwardRef(({ number, children }, ref) => {
   return (
@@ -75,8 +73,16 @@ const MagazineDetail = () => {
 
   // Full-Screen Toggle
   const toggleFullScreen = () => {
-    if (!document.fullscreenElement) {
-      containerRef.current?.requestFullscreen();
+    if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+      if (containerRef.current.requestFullscreen) {
+      containerRef.current.requestFullscreen();}
+else if (containerRef.current.webkitRequestFullscreen) {
+        containerRef.current.webkitRequestFullscreen();
+      } else if (containerRef.current.mozRequestFullScreen) {
+        containerRef.current.mozRequestFullScreen();
+      } else if (containerRef.current.msRequestFullscreen) {
+        containerRef.current.msRequestFullscreen();
+      }
       setIsFullScreen(true);
     } else {
       document.exitFullscreen();

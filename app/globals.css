@@ -34,3 +34,8 @@ body {
   background: white;
   z-index: 9999;
 }
+
+canvas {
+  image-rendering: -webkit-optimize-contrast;
+}
+

@@ -143,7 +143,7 @@ const MagazineDetail = () => {
             }}
           >
             <Document
-              file={`/${data.magazines[id - 1].file}.pdf`}
+              file={`/${data.magazines[id - 1].file}`}
               onLoadSuccess={onDocumentLoadSuccess}
             >
               {numPages ? (

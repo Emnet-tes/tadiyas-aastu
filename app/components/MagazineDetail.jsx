@@ -26,6 +26,26 @@ const Pages = React.forwardRef(({ number, children }, ref) => {
 });
 Pages.displayName = "Pages";
 
+const redirectToExternalBrowser = () => {
+  const userAgent = navigator.userAgent || window.opera;
+
+  // Detect if opened in an in-app browser (e.g., Telegram, Facebook, Instagram)
+  const isInAppBrowser =
+    /FBAN|FBAV|Instagram|Line|MicroMessenger|Snapchat|Twitter|WhatsApp|Telegram/i.test(
+      userAgent
+    );
+
+  if (isInAppBrowser) {
+    // Show a message or redirect to an external browser
+    window.location.href =
+      "googlechrome://" + window.location.href.replace(/^https?:\/\//, ""); // Chrome on iOS
+    setTimeout(() => {
+      window.location.href = "https://" + window.location.hostname; // Fallback for other browsers
+    }, 1000);
+  }
+};
+
+
 const MagazineDetail = () => {
   const { id } = useParams();
   const flipBook = useRef(null);
@@ -83,9 +103,7 @@ else if (containerRef.current.webkitRequestFullscreen) {
       } else if (containerRef.current.msRequestFullscreen) {
         containerRef.current.msRequestFullscreen();
       }
-      else{
-        containerRef.current.classList.toggle("fullscreen-mode");
-      }
+    
       setIsFullScreen(true);
     } else {
       document.exitFullscreen();
@@ -94,6 +112,7 @@ else if (containerRef.current.webkitRequestFullscreen) {
   };
 
   useEffect(() => {
+    redirectToExternalBrowser();
     const handleKeyDown = (e) => {
       if (e.key === "ArrowRight") handleNextPage();
       if (e.key === "ArrowLeft") handlePrevPage();

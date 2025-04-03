@@ -101,12 +101,12 @@ const Footer = () => {
                 <FaInstagram size="1.5rem" />
               </Link>
               <Link
-                href="https://www.instagram.com/tadiyas_aastu/"
+                href="https://www.linkedin.com/company/tadiyas-aastu-magazine/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-black transition-colors"
               >
-                <CiLinkedin size="1.5rem"/>
+                <CiLinkedin size="1.5rem" />
               </Link>
             </div>
           </div>

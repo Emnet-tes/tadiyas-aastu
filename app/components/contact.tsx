@@ -11,7 +11,7 @@ import {
 } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import {sendEmail} from "@/utils/send-email";
-import { toast } from "react-toastify";
+
 export type FormData = {
     name: string;
     email: string;
@@ -25,9 +25,7 @@ const Contact = () => {
     setIsSubmitting(true); 
     try {
       await sendEmail(data); 
-      toast.success("Email sent successfully!");
     } catch (error) {
-      toast.error("Failed to send email. Please try again later.");
       console.error("Failed to send email:", error);
     } finally {
       setIsSubmitting(false); 

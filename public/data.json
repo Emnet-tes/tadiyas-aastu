@@ -1,0 +1,56 @@
+
+{
+  "magazines": [
+    {
+      "id": 1,
+      "title": "The First Release",
+      "cover": "/magazine1.jpg",
+      "description": "Finding solutions in crisis",
+      "category": "All",
+      "date": "April, 2025"
+    }
+  ],
+  "team" : [
+    {
+      "name": "Hiwot Getnet",
+      "role": "Creative Director",
+      "image": "/envy.jpeg"
+    },
+    {
+      "name": "Maria Asfaw",
+      "role": "Founder & Editor-in-Chief",
+      " image": "/joy.jpg"
+    },
+    {
+      "name": "Meron Anley",
+      "role": "Graphic Designer",
+      "image": "/disgust.jpg"
+    },
+    {
+      "name": "Ruth Habtewold",
+      "role": "Graphic Designer",
+      "image": "/anxiety.jpg"
+    },
+    {
+      "name": "Anteneh Sintayehu",
+      "role": "Content Writer",
+      "image": "/fear.jpg"
+    },
+
+    {
+      "name": "Yabsra Gashaw",
+      "role": "Content Writer",
+      "image": "/anger.jpg"
+    },
+    {
+      "name": "Makda Yoseph",
+      "role": "Project Manager & Editor",
+      "image": "/nostaliga.jpg"
+    },
+    {
+      "name": "Emnet Teshome",
+      "role": "Frontend Developer",
+      "image": "/sad.jpg"
+    }
+  ]
+}

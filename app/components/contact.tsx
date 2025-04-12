@@ -9,7 +9,8 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 import { useForm } from "react-hook-form";
-import {sendEmail} from "@/utils/send-email";
+import { sendEmail } from "../utils/send-email";
+
 
 export type FormData = {
     name: string;
@@ -104,7 +105,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors inline-flex items-center justify-center group"
+                className="w-full bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors inline-flex items-center justify-center group cursor-pointer"
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
                 {!isSubmitting && <FaArrowRight className="ml-2" />}
@@ -151,8 +152,8 @@ const Contact = () => {
               {/* Be Member Button */}
               <div className="mt-6 flex flex-row justify-around">
                 <Link href="http://bit.ly/3QZwBpD" passHref target="_blank">
-                  <button className="w-full bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
-                    Be Member
+                  <button className="w-full bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors cursor-pointer">
+                    Be a Member
                   </button>
                 </Link>
                 <Link
@@ -160,7 +161,7 @@ const Contact = () => {
                   passHref
                   target="_blank"
                 >
-                  <button className="w-full bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
+                  <button className="w-full bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors cursor-pointer">
                     Submit Work
                   </button>
                 </Link>

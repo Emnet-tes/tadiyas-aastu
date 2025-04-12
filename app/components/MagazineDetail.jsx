@@ -1,16 +1,13 @@
 "use client";
 
-import { useParams } from "next/navigation";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import {
-  FaExpand,
-  FaSearchMinus,
-  FaSearchPlus,
-} from "react-icons/fa";
+import { FaExpand, FaSearchMinus, FaSearchPlus } from "react-icons/fa";
 import { GrFormNext, GrPrevious } from "react-icons/gr";
 import HTMLFlipBook from "react-pageflip";
 import { Document, Page, pdfjs } from "react-pdf";
-import data from "@/public/data.json";
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 // Set up PDF.js worker
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
@@ -26,7 +23,8 @@ const Pages = React.forwardRef(({ number, children }, ref) => {
 Pages.displayName = "Pages";
 
 const MagazineDetail = () => {
-  const { id } = useParams();
+  const params = useSearchParams();
+  const url = params.get("url");
   const flipBook = useRef(null);
   const containerRef = useRef(null);
   const [numPages, setNumPages] = useState(null);
@@ -40,6 +38,7 @@ const MagazineDetail = () => {
     const updateDimensions = () => {
       const isDesktopView = window.innerWidth >= 1024;
       setIsDesktop(isDesktopView);
+      isDesktopView ? setZoom(0.8) : setZoom(1);
       setDimensions(
         isDesktopView
           ? { width: 400, height: 555 }
@@ -96,31 +95,41 @@ const MagazineDetail = () => {
       className="max-w-7xl mx-auto px-4 py-8 flex flex-col items-center min-h-screen bg-gray-400"
     >
       {/* Controls */}
-      <div className="flex space-x-4 mt-12 justify-end w-full">
-        <button
-          onClick={zoomIn}
-          className="p-2 bg-white text-black shadow rounded-full hover:bg-blue-500 hover:text-white"
+      <div className="flex  mt-11 justify-between w-full">
+        <Link
+          href="/magazines"
+          className="text-blue-500 hover:underline flex items-center gap-1"
         >
-          <FaSearchPlus size={18} />
-        </button>
-        <button
-          onClick={zoomOut}
-          className="p-2 bg-white text-black shadow rounded-full hover:bg-blue-500 hover:text-white"
-        >
-          <FaSearchMinus size={18} />
-        </button>
-        {/* Full-Screen Button (Hidden on Mobile) */}
-        {isDesktop && (
+          <IoMdArrowRoundBack size={20} />
+          <span>Back to Magazines</span>
+        </Link>
+
+        <div className="space-x-4">
           <button
-            onClick={toggleFullScreen}
+            onClick={zoomIn}
             className="p-2 bg-white text-black shadow rounded-full hover:bg-blue-500 hover:text-white"
           >
-            <FaExpand size={18} />
-          </button>
-        )}
+            <FaSearchPlus size={18} />
+          </button>{" "}
+          <button
+            onClick={zoomOut}
+            className="p-2 bg-white text-black shadow rounded-full hover:bg-blue-500 hover:text-white"
+          >
+            <FaSearchMinus size={18} />
+          </button>{" "}
+          {/* Full-Screen Button (Hidden on Mobile) */}
+          {isDesktop && (
+            <button
+              onClick={toggleFullScreen}
+              className="p-2 bg-white text-black shadow rounded-full hover:bg-blue-500 hover:text-white"
+            >
+              <FaExpand size={18} />
+            </button>
+          )}
+        </div>
       </div>
 
-      <div className="relative w-full flex justify-center items-center">
+      <div className="relative w-full flex justify-center items-center ">
         <button
           onClick={handlePrevPage}
           disabled={currentPage === 0}
@@ -131,7 +140,7 @@ const MagazineDetail = () => {
 
         <div
           className="relative overflow-auto flex justify-center items-center w-full max-w-6xl"
-          style={{ height: "80vh" }}
+          style={{ height: "76vh" }}
         >
           <div
             className="flex justify-center items-center"
@@ -142,50 +151,49 @@ const MagazineDetail = () => {
               whiteSpace: "nowrap",
             }}
           >
-            <Document
-              file={`/${data.magazines[id - 1].file}`}
-              onLoadSuccess={onDocumentLoadSuccess}
-            >
-              {numPages ? (
-                <div className="p-4 rounded-lg">
-                  <HTMLFlipBook
-                    width={dimensions.width}
-                    height={dimensions.height}
-                    onFlip={onFlip}
-                    ref={flipBook}
-                    showCover={true}
-                    maxShadowOpacity={0.5}
-                    flippingTime={1000}
-                    usePortrait={!isDesktop}
-                    startPage={0}
-                    size="stretch"
-                    minWidth={dimensions.width}
-                    maxWidth={dimensions.width * 2}
-                    drawShadow={true}
-                  >
-                    {[...Array(numPages)].map((_, i) => (
-                      <Pages key={i} number={i + 1}>
-                        <Page
-                          pageNumber={i + 1}
-                          width={dimensions.width}
-                          renderAnnotationLayer={false}
-                          renderTextLayer={false}
-                          loading={
-                            <div className="flex justify-center items-center h-full">
-                              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
-                            </div>
-                          }
-                        />
-                      </Pages>
-                    ))}
-                  </HTMLFlipBook>
-                </div>
-              ) : (
-                <div className="flex justify-center items-center h-[400px]">
-                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
-                </div>
-              )}
-            </Document>
+            {url && (
+              <Document file={url} onLoadSuccess={onDocumentLoadSuccess}>
+                {numPages ? (
+                  <div className="p-2 rounded-lg">
+                    <HTMLFlipBook
+                      width={dimensions.width}
+                      height={dimensions.height}
+                      onFlip={onFlip}
+                      ref={flipBook}
+                      showCover={true}
+                      maxShadowOpacity={0.5}
+                      flippingTime={1000}
+                      usePortrait={!isDesktop}
+                      startPage={0}
+                      size="stretch"
+                      minWidth={dimensions.width}
+                      maxWidth={dimensions.width * 2}
+                      drawShadow={true}
+                    >
+                      {[...Array(numPages)].map((_, i) => (
+                        <Pages key={i} number={i + 1}>
+                          <Page
+                            pageNumber={i + 1}
+                            width={dimensions.width}
+                            renderAnnotationLayer={false}
+                            renderTextLayer={false}
+                            loading={
+                              <div className="flex justify-center items-center h-full">
+                                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+                              </div>
+                            }
+                          />
+                        </Pages>
+                      ))}
+                    </HTMLFlipBook>
+                  </div>
+                ) : (
+                  <div className="flex justify-center items-center h-[400px]">
+                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
+                  </div>
+                )}
+              </Document>
+            )}
           </div>
         </div>
 
@@ -196,9 +204,10 @@ const MagazineDetail = () => {
         >
           <GrFormNext size={20} />
         </button>
+      
       </div>
+      <p>{currentPage+1} of {numPages}</p>
     </div>
   );
 };
-
 export default MagazineDetail;

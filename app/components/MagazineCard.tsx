@@ -1,35 +1,37 @@
-"use client";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
-
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import Image from 'next/image';
+import data from '../../public/data.json'
 interface MagazineCardProps {
-  id: number;
+  id: string;
   title: string;
-  cover: string;
-  description: string;
-  date: string;
+  url: string;
+  mimeType: string;
 }
 
-const MagazineCard: React.FC<MagazineCardProps> = ({
-  id,
-  title,
-  cover,
-  date,
-}) => {
+const MagazineCard: React.FC<MagazineCardProps> = ({ url, id }) => {
+  const magazine = data.magazines.find((mag) => mag.fileId === id);
+
+  if (!magazine) return null; 
+
   return (
     <motion.div
       whileHover={{ y: -5 }}
-      className="group bg-trasparent transition-all duration-300"
+      className="group bg-transparent transition-all duration-300"
     >
-      <Link href={`/magazineDetail/${id}`} className="block">
-        {/* Cover Image Container */}
-        <div className="relative" style={{ aspectRatio: "0.77" }}>
+      <Link
+        href={{
+          pathname: `/magazineDetail/${id}`,
+          query: { url },
+        }}
+        className="block"
+      >
+        {/* Cover Image */}
+        <div className="relative" style={{ aspectRatio: '0.77' }}>
           <div className="w-full h-full overflow-hidden">
             <Image
-              src={cover}
-              alt={title}
+              src={magazine.cover}
+              alt={magazine.title}
               fill
               className="object-cover hover:scale-105 transition-transform duration-300"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -37,15 +39,15 @@ const MagazineCard: React.FC<MagazineCardProps> = ({
           </div>
         </div>
 
-        {/* Title Container */}
+        {/* Title */}
         <div className="pt-3 pb-2">
           <h3 className="text-md font-bold text-gray-900 hover:text-gray-700 transition-colors">
-            {title}
+            {magazine.title}
           </h3>
         </div>
 
         {/* Date */}
-        <div className="text-sm text-gray-600">{date}</div>
+        <div className="text-sm text-gray-600">{magazine.date}</div>
       </Link>
     </motion.div>
   );

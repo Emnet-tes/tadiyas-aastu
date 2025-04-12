@@ -39,12 +39,12 @@ const team = [
   },
   {
     name: "Makda Yoseph",
-    role: "Project Manager & Bot Developer",
+    role: "Project Manager",
     image: "/nostaliga.jpg",
   },
   {
     name: "Emnet Teshome",
-    role: "Frontend Developer",
+    role: "Website Developer",
     image: "/sad.jpg",
   },
 

@@ -6,7 +6,7 @@ import { useStorage } from "../context/StorageContext";
 import { storage } from "../lib/appwrite";
 export default function Dashboard() {
   const { files, loading, error } = useStorage();
-  const BUCKET_ID = "67fa159e0030e7e3ae7f";
+  const BUCKET_ID = process.env.NEXT_PUBLIC_BUCKET_ID || "";
 
   return (
     <div className="min-h-screen bg-gray-100">

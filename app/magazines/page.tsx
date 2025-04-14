@@ -7,7 +7,7 @@ import { storage } from "../lib/appwrite";
 
 const Magazines: React.FC = () => {
   const { files, loading, error } = useStorage();
-  const BUCKET_ID = "67fa159e0030e7e3ae7f";
+  const BUCKET_ID = process.env.NEXT_PUBLIC_BUCKET_ID || "";
 
   if (loading) {
     return <div role="status">

@@ -11,7 +11,6 @@ interface MagazineCardProps {
 
 const MagazineCard: React.FC<MagazineCardProps> = ({ url, id }) => {
   const magazine = data.magazines.find((mag) => mag.fileId === id);
-
   if (!magazine) return null; 
 
   return (

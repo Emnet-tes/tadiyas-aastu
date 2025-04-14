@@ -20,8 +20,8 @@ export const StorageProvider = ({ children }: { children: ReactNode }) => {
   const [files, setFiles] = useState<Models.File[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const BUCKET_ID = "67fa159e0030e7e3ae7f";
-
+  const BUCKET_ID = process.env.NEXT_PUBLIC_BUCKET_ID || "";
+  
   useEffect(() => {
     const fetchFiles = async () => {
       try {

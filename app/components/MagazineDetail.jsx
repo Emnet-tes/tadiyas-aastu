@@ -65,19 +65,34 @@ const MagazineDetail = () => {
   const zoomIn = () => setZoom((prev) => Math.min(prev + 0.2, 2));
   const zoomOut = () => setZoom((prev) => Math.max(prev - 0.2, 0.5));
 
-  const toggleFullScreen = () => {
-    if (!document.fullscreenElement && !document.webkitFullscreenElement) {
-      if (containerRef.current.requestFullscreen) {
-        containerRef.current.requestFullscreen();
-      } else if (containerRef.current.webkitRequestFullscreen) {
-        containerRef.current.webkitRequestFullscreen();
-      }
-      setIsFullScreen(true);
-    } else {
-      document.exitFullscreen();
-      setIsFullScreen(false);
+const toggleFullScreen = () => {
+  const element = containerRef.current;
+
+  if (
+    !document.fullscreenElement &&
+    !document.webkitFullscreenElement &&
+    element
+  ) {
+    if (element.requestFullscreen) {
+      element.requestFullscreen();
+    } else if (element.webkitRequestFullscreen) {
+      element.webkitRequestFullscreen();
+    } else if (element.msRequestFullscreen) {
+      element.msRequestFullscreen();
     }
-  };
+    setIsFullScreen(true);
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+    }
+    setIsFullScreen(false);
+  }
+};
+
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -118,14 +133,13 @@ const MagazineDetail = () => {
             <FaSearchMinus size={18} />
           </button>
           {/* Full-Screen Button (Hidden on Mobile) */}
-          {isDesktop && (
             <button
               onClick={toggleFullScreen}
               className="p-2 bg-white text-black shadow rounded-full hover:bg-blue-500 hover:text-white"
             >
               <FaExpand size={18} />
             </button>
-          )}
+          
         </div>
       </div>
 

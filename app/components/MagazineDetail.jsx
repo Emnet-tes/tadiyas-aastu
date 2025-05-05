@@ -169,6 +169,9 @@ const MagazineDetail = () => {
                       minWidth={dimensions.width}
                       maxWidth={dimensions.width * 2}
                       drawShadow={true}
+                      clickEventForward={false}
+                      mobileScrollSupport={false}
+                      useMouseEvents={false}
                     >
                       {[...Array(numPages)].map((_, i) => (
                         <Pages key={i} number={i + 1}>
@@ -204,9 +207,10 @@ const MagazineDetail = () => {
         >
           <GrFormNext size={20} />
         </button>
-      
       </div>
-      <p>{currentPage+1} of {numPages}</p>
+      <p>
+        {currentPage + 1} of {numPages}
+      </p>
     </div>
   );
 };

@@ -28,7 +28,7 @@ const MagazineCard: React.FC<MagazineCardProps> = ({file,id }) => {
         className="block"
       >
         {/* Cover Image */}
-        <div className="relative" style={{ aspectRatio: '0.77' }}>
+        <div className="relative" style={{ aspectRatio: '0.72' }}>
           <div className="w-full h-full overflow-hidden">
             <Image
               src={magazine.cover}

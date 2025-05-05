@@ -65,7 +65,7 @@ const team = [
   {
     name: "Kaleab Getachew",
     role: "Graphic Designer",
-    image: "/kaleab_Gti.jpg",
+    image: "/kaleabGti.jpg",
   },
 
   {

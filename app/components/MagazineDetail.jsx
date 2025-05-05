@@ -133,13 +133,12 @@ const toggleFullScreen = () => {
             <FaSearchMinus size={18} />
           </button>
           {/* Full-Screen Button (Hidden on Mobile) */}
-            <button
-              onClick={toggleFullScreen}
-              className="p-2 bg-white text-black shadow rounded-full hover:bg-blue-500 hover:text-white"
-            >
-              <FaExpand size={18} />
-            </button>
-          
+          <button
+            onClick={toggleFullScreen}
+            className="p-2 bg-white text-black shadow rounded-full hover:bg-blue-500 hover:text-white"
+          >
+            <FaExpand size={18} />
+          </button>
         </div>
       </div>
 
@@ -186,6 +185,7 @@ const toggleFullScreen = () => {
                       clickEventForward={false}
                       mobileScrollSupport={false}
                       useMouseEvents={false}
+                      renderOnlyPageLengthChange={true}
                     >
                       {[...Array(numPages)].map((_, i) => (
                         <Pages key={i} number={i + 1}>

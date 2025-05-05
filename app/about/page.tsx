@@ -65,7 +65,7 @@ const team = [
   {
     name: "Kaleab Getachew",
     role: "Graphic Designer",
-    image: "/kaleabGti.jpg",
+    image: "/kal.jpg",
   },
 
   {
@@ -234,7 +234,7 @@ const About = () => {
           <div className="text-center mt-10">
             <button
               onClick={() => setShowAll(!showAll)}
-              className="px-6 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition"
+              className="px-6 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition cursor-pointer"
             >
               {showAll ? "Show Less" : "Show More"}
             </button>

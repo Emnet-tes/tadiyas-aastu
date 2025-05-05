@@ -16,7 +16,7 @@ export default function Dashboard() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 'url("/home.jpg")',
+            backgroundImage: 'url("/hometi.jpg")',
           }}
         ></div>
         <div className="relative z-10 max-w-7xl w-full">

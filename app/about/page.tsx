@@ -10,108 +10,108 @@ const team = [
   {
     name: "Maria Asfaw",
     role: "Co-Founder & Editor-in-Chief",
-    image: "/Maria.jpg",
+    image: "/Mariati.jpg",
   },
   {
     name: "Meron Anley",
     role: "Co-Founder & Graphic Designer",
-    image: "/Meron.jpg",
+    image: "/Meronti.jpg",
   },
   {
     name: "Hiwot Getnet",
     role: "Co-Founder & Creative Director",
-    image: "/hiwot.jpg",
+    image: "/hiwoti.jpg",
   },
   {
     name: "Ruth Habtewold",
     role: "Co-Founder & Graphic Designer",
-    image: "/Ruth.jpg",
+    image: "/Ruthti.jpg",
   },
   {
     name: "Makda Yoseph",
     role: "Co-Founder & Project Manager",
-    image: "/makeda.jpg",
+    image: "/makedati.jpg",
   },
   {
     name: "Emnet Teshome",
     role: "Co-Founder & Website Developer",
-    image: "/emnet.png",
+    image: "/emneti.png",
   },
   {
     name: "Anteneh Sintayehu",
     role: "Content Writer",
-    image: "/anteneh.jpg",
+    image: "/antenehti.jpg",
   },
   {
     name: "Omega Teklu",
     role: "Digital Artist",
-    image: "/ome.jpg",
+    image: "/ometi.jpg",
   },
   {
     name: "Yeabsira Taye",
     role: "Graphic Designer",
-    image: "/yeabsira.jpg",
+    image: "/yeabsirati.jpg",
   },
   {
     name: "Kidist Mehari",
     role: "Graphic Designer",
-    image: "/Kidist.jpg",
+    image: "/Kidistti.jpg",
   },
   {
     name: "Leul Teshager",
     role: "Digital Artist",
-    image: "/leul.jpg",
+    image: "/leulti.jpg",
   },
   {
     name: "Kaleab Getachew",
     role: "Graphic Designer",
-    image: "/kaleab_G.jpg",
+    image: "/kaleab_Gti.jpg",
   },
 
   {
     name: "Eyoel Shewayirga",
     role: "Graphic Designer",
-    image: "/Eyoel.jpg",
+    image: "/Eyoelti.jpg",
   },
   {
     name: "Bereket Tizazu",
     role: "Graphic Designer",
-    image: "/bereket.jpg",
+    image: "/bereketi.jpg",
   },
   {
     name: "Kalkidan Getahun",
     role: "Graphic Designer",
-    image: "/Kalkidan.jpg",
+    image: "/Kalkidanti.jpg",
   },
   {
     name: "Yoftahea Tenessa",
     role: "Graphic Designer",
-    image: "/yoftahea.jpg",
+    image: "/yoftaheati.jpg",
   },
   {
     name: "Faiz Getaneh",
     role: "Digital Artist",
-    image: "/Faiz.jpg",
+    image: "/Faizti.jpg",
   },
   {
     name: "Hiwot Tadesse",
     role: "Event Coordinator",
-    image: "/hiwi.png",
+    image: "/hiwiti.png",
   },
   {
     name: "Hewan Alemayehu",
     role: "Event Coordinator",
-    image: "/hewan.jpg",
+    image: "/hewanti.jpg",
   },
   {
     name: "Kaleab Yohannes",
     role: "Photographer",
-    image: "/Kaleab.jpg",
+    image: "/Kaleabti.jpg",
   },
   {
     name: "Abey Bekalu",
     role: "Story Writer",
-    image: "/abey.jpg",
+    image: "/abeyti.jpg",
   },
   {
     name: "JJ.",
@@ -186,7 +186,7 @@ const About = () => {
               className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl"
             >
               <Image
-                src="/home.jpg"
+                src="/hometi.jpg"
                 alt="Our Vision"
                 className="w-full h-full object-cover"
                 width={800}

@@ -8,7 +8,7 @@
       "description": "Finding solutions in crisis",
       "category": "All",
       "date": "April, 2025",
-      "file": "/First_Release_Magazine_April_2025.pdf"
+      "file": "/First_Release_Magazine_April_2025_compressed.pdf"
     },
     {
       "title": "2025:May Issue",
@@ -18,7 +18,16 @@
       "category": "All",
       "date": "May, 2025",
       "file": "/May_Issue_2025_compressed.pdf"
-    }
+    },
+     {
+       "title": "Coming Soon",
+       "fileId": "67fa5f0300377fa764ab",
+       "cover": "/Commingsoon.png",
+       "description": "Finding solutions in crisis",
+       "category": "All",
+       "date": "Coming Soon",
+       "file": "/Comming_Soon_3.pdf"
+     }
   ],
   "team" : [
     {

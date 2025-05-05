@@ -5,12 +5,14 @@ import data from '../../public/data.json'
 interface MagazineCardProps {
   id: string;
   title: string;
-  url: string;
-  mimeType: string;
+  file:string;
+  // url: string;
+  // mimeType: string;
 }
 
-const MagazineCard: React.FC<MagazineCardProps> = ({ url, id }) => {
+const MagazineCard: React.FC<MagazineCardProps> = ({file,id }) => {
   const magazine = data.magazines.find((mag) => mag.fileId === id);
+  
   if (!magazine) return null; 
 
   return (
@@ -21,7 +23,7 @@ const MagazineCard: React.FC<MagazineCardProps> = ({ url, id }) => {
       <Link
         href={{
           pathname: `/magazineDetail/${id}`,
-          query: { url },
+          query: { file },
         }}
         className="block"
       >

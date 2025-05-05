@@ -24,7 +24,7 @@ Pages.displayName = "Pages";
 
 const MagazineDetail = () => {
   const params = useSearchParams();
-  const url = params.get("url");
+  const url = params.get("file");
   const flipBook = useRef(null);
   const containerRef = useRef(null);
   const [numPages, setNumPages] = useState(null);
@@ -110,13 +110,13 @@ const MagazineDetail = () => {
             className="p-2 bg-white text-black shadow rounded-full hover:bg-blue-500 hover:text-white"
           >
             <FaSearchPlus size={18} />
-          </button>{" "}
+          </button>
           <button
             onClick={zoomOut}
             className="p-2 bg-white text-black shadow rounded-full hover:bg-blue-500 hover:text-white"
           >
             <FaSearchMinus size={18} />
-          </button>{" "}
+          </button>
           {/* Full-Screen Button (Hidden on Mobile) */}
           {isDesktop && (
             <button

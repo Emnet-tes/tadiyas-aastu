@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import { ToastContainer } from "react-toastify";
 import { Analytics } from "@vercel/analytics/react";
 import { StorageProvider } from './context/StorageContext';
+import { ThemeProvider } from './context/ThemeContext'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,19 +26,24 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html lang="en">
       <body>
+        <ThemeProvider>
         <StorageProvider>
-          <Analytics />
-          <ToastContainer />
-          <Navbar />
-          <main className={`min-h-screen ${geistMono.variable} ${geistSans.variable}`}>{children}</main>
-          <Footer />
-        </StorageProvider>
+  <Analytics />
+  <ToastContainer />
+  <Navbar />
+  <main className={`min-h-screen ${geistMono.variable} ${geistSans.variable}`}>{children}</main>
+  <Footer />
+</StorageProvider>
+  
+        </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }
+
+ 

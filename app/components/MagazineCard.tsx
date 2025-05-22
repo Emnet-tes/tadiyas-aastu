@@ -1,19 +1,20 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import data from '../../public/data.json'
+import data from '../../public/data.json';
+import { useTheme } from '../context/ThemeContext'; // 1. Import theme hook
+
 interface MagazineCardProps {
   id: string;
   title: string;
-  file:string;
-  // url: string;
-  // mimeType: string;
+  file: string;
 }
 
-const MagazineCard: React.FC<MagazineCardProps> = ({file,id }) => {
+const MagazineCard: React.FC<MagazineCardProps> = ({ file, id }) => {
   const magazine = data.magazines.find((mag) => mag.fileId === id);
-  
-  if (!magazine) return null; 
+  const { theme } = useTheme(); // 2. Use theme
+
+  if (!magazine) return null;
 
   return (
     <motion.div
@@ -42,13 +43,19 @@ const MagazineCard: React.FC<MagazineCardProps> = ({file,id }) => {
 
         {/* Title */}
         <div className="pt-3 pb-2">
-          <h3 className="text-md font-bold text-gray-900 hover:text-gray-700 transition-colors">
+          <h3
+            className={`text-md font-bold transition-colors ${
+              theme === 'dark' ? 'text-white hover:text-gray-300' : 'text-gray-900 hover:text-gray-700'
+            }`}
+          >
             {magazine.title}
           </h3>
         </div>
 
         {/* Date */}
-        <div className="text-sm text-gray-600">{magazine.date}</div>
+        <div className={`text-sm transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+          {magazine.date}
+        </div>
       </Link>
     </motion.div>
   );

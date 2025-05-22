@@ -3,7 +3,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
-import { FaMoon, FaSun } from "react-icons/fa";
 import Image from "next/image";
 
 

@@ -14,7 +14,7 @@ export default function Dashboard() {
       <section className="relative h-screen flex items-center justify-start px-12">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url("/hometi.jpg")' }}
+          style={{ backgroundImage: 'url("/hometi.png")' }}
         ></div>
         <div className="absolute inset-0  bg-opacity-50"></div>
 
@@ -34,7 +34,7 @@ export default function Dashboard() {
             </p>
             <Link
               href="/magazines"
-              className="inline-block px-8 py-4 text-md text-white bg-red-700 rounded-lg transition-colors hover:bg-black hover:text-white"
+              className="inline-block px-8 py-4 text-md text-white bg-red-700 rounded-lg transition-colors hover:bg-white hover:text-black"
             >
               View All
             </Link>

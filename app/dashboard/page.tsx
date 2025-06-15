@@ -54,7 +54,6 @@ export default function Dashboard() {
                 key={file.fileId}
                 id={file.fileId}
                 title={file.title}
-                file={file.file}
               />
             ))}
           </div>

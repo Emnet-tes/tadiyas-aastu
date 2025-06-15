@@ -37,7 +37,7 @@ export default function MagazineViewer() {
       {iframeSrc && (
         <iframe
           width="100%"
-          height="525"
+          height="545"
           src={iframeSrc}
           seamless
           allowtransparency="true"

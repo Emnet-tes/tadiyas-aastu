@@ -25,7 +25,7 @@ const Footer = () => {
           <div>
             <Link href="/" className={`text-2xl font-bold ${headingClass}`}>
               <Image
-                src="/logo1.png"
+                src="/logo white.png"
                 width={70}
                 height={70}
                 alt="logo of tadiyas aastu"

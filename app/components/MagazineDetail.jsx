@@ -31,7 +31,7 @@ export default function MagazineViewer() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center md:py-16 min-h-screen  text-gray-800">
+    <div className="flex flex-col items-center justify-center md:py-16 min-h-screen  text-gray-800 bg-gray-800">
     
 
       {iframeSrc && (
@@ -51,7 +51,7 @@ export default function MagazineViewer() {
 
 
 const NotFound = () => (
-  <div className="flex flex-col items-center justify-center py-10 min-h-screen bg-gray-700 text-white">
+  <div className="flex flex-col items-center justify-center py-10 min-h-screen bg-gray-800 text-white">
     <img
       src="/404.svg" 
       alt="Not Found"
@@ -66,8 +66,8 @@ const NotFound = () => (
 
 
 const Spinner = () => (
-  <div className="flex items-center justify-center py-10 min-h-screen bg-gray-400">
-    <svg className="animate-spin h-10 w-10 text-gray-500" viewBox="0 0 24 24">
+  <div className="flex items-center justify-center py-10 min-h-screen bg-gray-800">
+    <svg className="animate-spin h-10 w-10 text-gray-400" viewBox="0 0 24 24">
       <circle
         className="opacity-25"
         cx="12"

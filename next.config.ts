@@ -2,10 +2,14 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
- images: {
-  domains: [
-    "online.anyflip.com"],
- }
+//  images: {
+//   remotePatterns: [
+//     {
+//       protocol: "https",
+//       hostname: "online.anyflip.com"
+//     }
+//   ],
+//  }
 };
 
 export default nextConfig;

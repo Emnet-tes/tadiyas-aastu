@@ -23,8 +23,10 @@ export default function MagazineViewer() {
 
     return () => clearTimeout(timer);
   }, [searchParams]);
-
-  if (!iframeSrc) {
+  if (loading) {
+    return <Spinner />;
+  }
+  if (notFound) {
     return <NotFound />;
   }
 
@@ -35,7 +37,7 @@ export default function MagazineViewer() {
       {iframeSrc && (
         <iframe
           width="100%"
-          height="575"
+          height="525"
           src={iframeSrc}
           seamless
           allowtransparency="true"
@@ -63,7 +65,7 @@ const NotFound = () => (
 
 
 const Spinner = () => (
-  <div className="flex items-center justify-center py-10">
+  <div className="flex items-center justify-center py-10 min-h-screen bg-gray-400">
     <svg className="animate-spin h-10 w-10 text-gray-500" viewBox="0 0 24 24">
       <circle
         className="opacity-25"

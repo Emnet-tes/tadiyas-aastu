@@ -45,3 +45,7 @@ canvas {
   image-rendering: -webkit-optimize-contrast;
 }
 
+.fh5---banner---container {
+  display: none !important;
+}
+

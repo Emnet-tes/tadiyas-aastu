@@ -1,8 +1,7 @@
 'use client'
 import { useEffect, useState } from "react";
-import { IoMdArrowRoundBack } from "react-icons/io";
-import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+
 
 export default function MagazineViewer() {
   const [iframeSrc, setIframeSrc] = useState("");
@@ -83,3 +82,4 @@ const Spinner = () => (
     </svg>
   </div>
 );
+

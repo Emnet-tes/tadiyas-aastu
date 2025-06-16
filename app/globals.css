@@ -14,8 +14,8 @@
 
 /* Light theme (default) */
 body.light {
-  --bg-color: #ffffff;
-  --text-color: #000000;
+  --bg-color: #121212;
+  --text-color: #ffffff;
 }
 
 /* Dark theme */

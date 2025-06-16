@@ -195,7 +195,7 @@ const About = () => {
               className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl"
             >
               <Image
-                src="/hometi.jpg"
+                src="/websit-04.png"
                 alt="Our Vision"
                 className="w-full h-full object-cover"
                 width={800}

@@ -14,7 +14,7 @@ export default function Dashboard() {
       <section className="relative h-screen flex items-center justify-start px-12">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url("/hometi.png")' }}
+          style={{ backgroundImage: 'url("/websit-04.png")' }}
         ></div>
         <div className="absolute inset-0  bg-opacity-50"></div>
 

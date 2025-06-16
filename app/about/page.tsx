@@ -173,10 +173,8 @@ const About = () => {
             >
               <h2 className={`text-4xl font-bold ${textColor}`}>Our Vision</h2>
               <p className={`text-lg leading-relaxed ${textSubColor}`}>
-                Our vision is to create a space at AASTU where students can
-                explore their passions and express their creativity. We want to
-                bring people together, encourage new ideas, and help students
-                grow through collaboration and innovation.
+                Our vision is to create a platform where students can explore
+                their passion and express their creativity.
               </p>
               <Link
                 href="/contact"

@@ -37,7 +37,7 @@ const Navbar = () => {
                 <Link
                   key={path}
                   href={path}
-                  className="text-white  transition-colors text-sm"
+                  className="text-gray-300  transition-colors text-sm"
                 >
                   {labels[index]}
                 </Link>

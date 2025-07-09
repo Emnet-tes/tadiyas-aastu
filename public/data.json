@@ -2,6 +2,15 @@
 {
   "magazines": [
     {
+      "title": "2025: Summer",
+      "fileId": "67fa5f0300377fa764kk",
+      "cover": "/Artboard 1.png",
+      "description": "Finding solutions in crisis",
+      "category": "All",
+      "date": "June, 2025",
+      "file": "https://online.fliphtml5.com/skiba/biby/"
+    },
+    {
       "title": "2025: Water",
       "fileId": "67fa5f0300377fa764ab",
       "cover": "/Artboard 2.png",
@@ -27,10 +36,7 @@
       "category": "All",
       "date": "April, 2025",
       "file": "https://online.fliphtml5.com/skiba/dhsk/"
-      
-
     }
-    
   ],
   "team" : [
     {

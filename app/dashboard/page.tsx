@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import MagazineCard from "../components/MagazineCard";
@@ -7,16 +8,48 @@ import { useTheme } from "../context/ThemeContext"; // import the hook
 
 export default function Dashboard() {
   const { theme } = useTheme();
+  const [isTelegramWebView, setIsTelegramWebView] = useState(false);
+
+  // Detect if user is in Telegram
+  useEffect(() => {
+    const ua = navigator.userAgent || navigator.vendor;
+    if (ua.includes("Telegram")) {
+      setIsTelegramWebView(true);
+    }
+  }, []);
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${theme === "dark" ? "bg-gray-800" : "bg-gray-100"}`}>
+    <div
+      className={`min-h-screen transition-colors duration-300 ${
+        theme === "dark" ? "bg-gray-800" : "bg-gray-100"
+      }`}
+    >
+      {/* Show Telegram Warning */}
+      {isTelegramWebView && (
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 flex flex-col items-center justify-center z-50 text-white p-6">
+          <h2 className="text-2xl font-bold mb-4">Open in Browser</h2>
+          <p className="mb-6 text-center">
+            You're viewing this inside Telegram's in-app browser, which may
+            cause issues. <br />
+            Please tap the <strong>three dots (⋮)</strong> at the top right and
+            select <strong>“Open in Browser”</strong> to continue.
+          </p>
+          <button
+            onClick={() => window.open(window.location.href, "_blank")}
+            className="bg-white text-black px-6 py-3 rounded-md font-semibold hover:bg-gray-200 transition"
+          >
+            Open in Browser
+          </button>
+        </div>
+      )}
+
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-start px-12">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: 'url("/websit-04.png")' }}
         ></div>
-        <div className="absolute inset-0  bg-opacity-50"></div>
+        <div className="absolute inset-0 bg-opacity-50"></div>
 
         <div className="relative z-10 max-w-7xl w-full">
           <motion.div
@@ -45,7 +78,11 @@ export default function Dashboard() {
       {/* Featured Magazines */}
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-10">
-          <h2 className={`text-2xl font-bold mb-8 ${theme === "dark" ? "text-white" : "text-black"}`}>
+          <h2
+            className={`text-2xl font-bold mb-8 ${
+              theme === "dark" ? "text-white" : "text-black"
+            }`}
+          >
             Featured Magazines
           </h2>
           <div className="grid grid-cols-grow grid-cols-2 lg:grid-cols-4 gap-4">

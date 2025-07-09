@@ -27,21 +27,20 @@ export default function Dashboard() {
         theme === "dark" ? "bg-gray-800" : "bg-gray-100"
       }`}
     >
-      {/* Show Telegram Warning */}
+      {/* ✅ Simple Dismissible Popup */}
       {showMobilePopup && (
-        <div className="fixed top-0 left-0 w-full h-full  bg-black bg-opacity-80 flex flex-col items-center justify-center z-50 text-white p-6">
-          <h2 className="text-2xl font-bold mb-4">Open in Browser</h2>
-          <p className="mb-6 text-center">
-            You&apos;re viewing this inside in-app browser, which may cause
+        <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-[9999] bg-white border border-gray-300 text-black shadow-md rounded-lg px-4 py-3 max-w-sm w-[90%] text-sm flex justify-between items-center">
+          <span>
+            If you&apos;re viewing this inside in-app browser, which may cause
             issues. <br />
             Please tap the <strong>three dots (⋮)</strong> at the top right and
             select <strong>“Open in Browser”</strong> to continue.
-          </p>
+          </span>
           <button
-            onClick={() => window.open(window.location.href, "_blank")}
-            className="bg-white text-black px-6 py-3 rounded-md font-semibold hover:bg-gray-200 transition"
+            onClick={() => setShowMobilePopup(false)}
+            className="ml-4 text-red-600 font-bold"
           >
-            Open in Browser
+            ✕
           </button>
         </div>
       )}

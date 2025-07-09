@@ -29,8 +29,8 @@ export default function Dashboard() {
         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 flex flex-col items-center justify-center z-50 text-white p-6">
           <h2 className="text-2xl font-bold mb-4">Open in Browser</h2>
           <p className="mb-6 text-center">
-            You're viewing this inside Telegram's in-app browser, which may
-            cause issues. <br />
+            You&apos;re viewing this inside Telegram&apos;s in-app browser,
+            which may cause issues. <br />
             Please tap the <strong>three dots (⋮)</strong> at the top right and
             select <strong>“Open in Browser”</strong> to continue.
           </p>

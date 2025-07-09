@@ -11,10 +11,11 @@ export default function Dashboard() {
   const [showMobilePopup, setShowMobilePopup] = useState(false);
 
   useEffect(() => {
-    const ua = navigator.userAgent || "";
+   
 
+    const ua = navigator.userAgent;
     const isMobile = /Mobi|Android|iPhone/i.test(ua);
-    const isBlockedApp = /Instagram|FBAN|FBAV|LinkedIn/i.test(ua); // Instagram, Facebook App, LinkedIn App
+    const isBlockedApp = ua.includes("Telegram");
 
     if (isMobile && !isBlockedApp) {
       setShowMobilePopup(true);

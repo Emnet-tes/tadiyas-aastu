@@ -2,6 +2,15 @@
 {
   "magazines": [
     {
+      "title": "2025: New Year",
+      "fileId": "67fa5f0301377fa764kl",
+      "cover": "/megzine cover page-01.png",
+      "description": "Finding solutions in crisis",
+      "category": "All",
+      "date": "August, 2025",
+      "file": "https://online.fliphtml5.com/skiba/yxdx/"
+    },
+    {
       "title": "2025: Tech",
       "fileId": "67fa5f0300377fa764kl",
       "cover": "/cover page 3.png",
